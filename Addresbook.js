@@ -1,6 +1,6 @@
 console.log("Welcome to address book problem");
 
-class AddressBook {
+class AddressBookContacts {
   //constructor
   constructor(...params) {
     this.firstName = params[0];
@@ -12,237 +12,242 @@ class AddressBook {
     this.phoneNumber = params[6];
     this.email = params[7];
   }
-
-  //uc2 validating all the details
-  //first letter should be capital and min 3 letters
-  get firstName() { return this._firstName; }// get and set for firstname
+  get firstName() {
+    return this._firstName;
+  }
   set firstName(firstName) {
     let nameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
     // test returns a boolen value
-    if (nameRegex.test(firstName))
-      this._firstName = firstName;
-    else
-      throw "Invalid first Name";
+    if (nameRegex.test(firstName)) this._firstName = firstName;
+    else throw "Invalid first Name";
   }
 
-  //first letter should be capital and min 3 letters
-  get lastName() { return this._lastName; }//get and set for lastname
+  get lastName() {
+    return this._lastName;
+  }
   set lastName(lastName) {
     let nameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
     // test returns a boolen value
-    if (nameRegex.test(lastName))
-      this._lastName = lastName;
-    else
-      throw "Invalid last Name";
+    if (nameRegex.test(lastName)) this._lastName = lastName;
+    else throw "Invalid last Name";
   }
 
-  //minimum four characters
-  get address() { return this._address; }//get and set for address
+  //get and set for address
+  get address() {
+    return this._address;
+  }
   set address(address) {
     let addressRegex = RegExp("^[A-Za-z]{4,}$");
-    if (addressRegex.test(address))
-      this._address = address;
-    else
-      throw "Invalid address ";
+    if (addressRegex.test(address)) this._address = address;
+    else throw "Invalid address ";
   }
-
-  //minimum four characters
-  get city() { return this._city; }//get and set for city
+  get city() {
+    return this._city;
+  }
   set city(city) {
     let cityRegex = RegExp("^[A-Za-z]{4,}$");
-    if (cityRegex.test(city))
-      this._city = city;
-    else
-      throw "Invalid city ";
+    if (cityRegex.test(city)) this._city = city;
+    else throw "Invalid city ";
   }
 
-  //minimum four characters
-  get state() { return this._state; }//get and set for state
+  get state() {
+    return this._state;
+  }
   set state(state) {
     let stateRegex = RegExp("^[A-Za-z0-9]{4,}$");
-    if (stateRegex.test(state))
-      this._state = state;
-    else
-      throw "Invalid state";
+    if (stateRegex.test(state)) this._state = state;
+    else throw "Invalid state";
   }
 
-  //pin code of form 789 987
-  get zip() { return this._zip; }//get and set for zip
+  get zip() {
+    return this._zip;
+  }
   set zip(zip) {
-    let zipRegex = RegExp("^[1-9]{3}[ ]*[0-9]{3}$");
-    if (zipRegex.test(zip))
-      this._zip = zip;
-    else
-      throw "Invalid zip ";
+    let zipRegex = RegExp("^[1-9]{3}[ ]?[0-9]{3}$");
+    if (zipRegex.test(zip)) this._zip = zip;
+    else throw "Invalid zip ";
   }
 
-  //phone number should be of form 91 9650925666
-  get phoneNumber() { return this._phoneNumber; }//get and set for phoneNumber
+  get phoneNumber() {
+    return this._phoneNumber;
+  }
   set phoneNumber(phoneNumber) {
     let phoneRegex = RegExp("^[1-9]{2}[ ]{1}[0-9]{10}$");
-    if (phoneRegex.test(phoneNumber))
-      this._phoneNumber = phoneNumber;
-    else
-      throw "Invalid phone number";
+    if (phoneRegex.test(phoneNumber)) this._phoneNumber = phoneNumber;
+    else throw "Invalid phone number";
   }
 
-  //ac.xyz@gmail.com.in .xyz-optional .in-optional
-  get email() { return this._email; }// get and set for email
+
+  get email() {
+    return this._email;
+  }
   set email(email) {
-    let emailRegex = RegExp("^([a-z0-9A-Z])+([.]?[a-z0-9A-Z]+)*[@]{1}[a-z0-9A-Z]+[.]{1}[a-zA-Z]{2,}([.]{1}[a-z]{2,})?$");
-    if (emailRegex.test(email))
-      this._email = email;
-    else
-      throw "Invalid email";
+    let emailRegex = RegExp(
+      "^([a-z0-9A-Z])+([.]?[a-z0-9A-Z]+)*[@]{1}[a-z0-9A-Z]+[.]{1}[a-zA-Z]{2,}([.]{1}[a-z]{2,})?$"
+    );
+    if (emailRegex.test(email)) this._email = email;
+    else throw "Invalid email";
   }
 
-  //defining to string method
   toString() {
-    return "first Name: " + this.firstName + ", last Name: " + this.lastName
-      + "\nAddress: " + this.address + ", City: " + this.city
-      + ", State: " + this.state + " Zip: " + this.zip
-      + ", \nPhoneNumber: " + this.phoneNumber + ", email: " + this.email;
+    return (
+      "First Name: " +
+      this.firstName +
+      ", Last Name: " +
+      this.lastName +
+      "\nAddress: " +
+      this.address +
+      ", City: " +
+      this.city +
+      ", State: " +
+      this.state +
+      "\nZip: " +
+      this.zip +
+      ", Phone Number: " +
+      this.phoneNumber +
+      ", Email: " +
+      this.email
+    );
   }
 }
-//creating an instance and giving contact details
+
 try {
-  // uc3 adding contact details to array 
+  let addressBookContactsArray = new Array();
+  addressBookContactsArray.push(
+    new AddressBookContacts(
+      "Vijay",
+      "Kumar",
+      "Manvi",
+      "Raichur",
+      "Karnataka",
+      "511002",
+      "91 7674929172",
+      "vijay812998@gmail.com"
+    )
+  );
+  addressBookContactsArray.push(
+    new AddressBookContacts(
+      "Arun",
+      "Kumar",
+      "IlkalRoad",
+      "Bagalkote",
+      "Karnataka",
+      "268 756",
+      "91 9090909090",
+      "arun@gmail.com"
+    )
+  );
+  addressBookContactsArray.push(
+    new AddressBookContacts(
+      "Halesh",
+      "Kumar",
+      "firststreet",
+      "Delhi",
+      "NewDelhi",
+      "891 258",
+      "87 9090909090",
+      "nandha@gmail.com"
+    )
+  );
+  addressBookContactsArray.push(
+    new AddressBookContacts(
+      "Abhi",
+      "Lash",
+      "Manviroad",
+      "Raichur",
+      "Karnataka",
+      "628 412",
+      "91 7878787878",
+      "john@gmail.com"
+    )
+  );
 
-  let contactDetailsArray = new Array();
-  contactDetailsArray.push(new AddressBook("Vijay", "Kumar", "Manvi", "Raichur", "Larnataka", "411004",
-    "91 7558468932", "vijaykumar@gmail.com"));
-  contactDetailsArray.push(new AddressBook("Rama", "Narsimma", "nearManviroad", "Manvi", "Karnataka",
-    "128 755", "91 8587087642", "vijaykumar@gmail.com"));
-  contactDetailsArray.push(new AddressBook("Aruna", "Kumar", "fiftstreet", "Landan", "France",
-    "871 258", "87 6587321451", "aruna@gmail.com"));
-  contactDetailsArray.push(new AddressBook("Troy", "Tom", "alaska", "Zurich", "Switzerland",
-    "128 213", "91 8966541252", "troy@gmail.com"));
   //printing array before updating
-  contactDetailsArray.forEach((contact) => console.log(contact.toString()));
+  addressBookContactsArray.forEach((contact) =>
+    console.log(contact.toString())
+  );
 
-  // uc4 finding index using name
-  console.log("--------------------------------------------------");
-  let index = contactDetailsArray.findIndex(contact => contact.firstName == "Roma");
+  //finding index using name
+  let check = addressBookContactsArray.findIndex(
+    (contact) => contact.firstName == "Ajay"
+  );
   //updating the contact detail
-  contactDetailsArray[index].zip = "121003";
+  addressBookContactsArray[check].zip = "121 003";
 
   //displaying contacts after being updated
-  console.log("contacts after being updated");
-  contactDetailsArray.forEach((contact) => console.log(contact.toString()));
+  console.log(
+    "After Changing Zip Updated Contacts are"
+  );
+  addressBookContactsArray.forEach((contact) =>
+    console.log(contact.toString())
+  );
 
-  //uc5 Removes an element from an array at specified index
-  console.log("---------------------------------------------------------");
-  contactDetailsArray.splice(index, 1);
-  console.log("contacts after being deleted");
-  contactDetailsArray.forEach((contact) => console.log(contact.toString()));
+  //UC5 Removing an element from an array at an index
+  addressBookContactsArray.splice(check, 1);
+  console.log(
+    "Contacts after Being Deleted from the array"
+  );
+  addressBookContactsArray.forEach((contact) =>
+    console.log(contact.toString())
+  );
 
-  //uc6 Reduce function to find number of contacts
-  console.log("----------------------------------------------------");
-  var totalContacts = 0;
-  function FindTotalContacts(contactDetailsArray) {
-    if (contactDetailsArray != null)
-      totalContacts++;
-    return totalContacts;
+  //UC6 Reduce function to find total of contacts in Address Book
+  var totalContactsPresent = 0;
+  function findTotalContacts(addressBookContactsArray) {
+    if (addressBookContactsArray != null) totalContactsPresent++;
+    return totalContactsPresent;
   }
-  contactDetailsArray.reduce(FindTotalContacts, 1);
-  console.log("Total number of contacts in contactdetails array : " + totalContacts);
+  addressBookContactsArray.reduce(findTotalContacts, 1);
+  console.log(
+    "Total Contacts Present in the AddressBookContacts array: " +
+      totalContactsPresent
+  );
 
-  //uc7 check for duplicate value
-  let countForDuplicate = 0;
-  function CheckForDuplicates(contact) {
-    if (contact.firstName == "Vijay")
-      countForDuplicate++;
-    return countForDuplicate;
+  // check for duplicate Person details
+  let DuplicateCount = 0;
+  function CheckDuplicatesCount(contact) {
+    if (contact.firstName == "Nandha") DuplicateCount++;
+    return DuplicateCount;
   }
   //using foreach checking the count for each contact
-  contactDetailsArray.forEach((contact) => CheckForDuplicates(contact));
-  if (countForDuplicate == 1)
-    console.log("not a duplicate entry");
+  addressBookContactsArray.forEach((contact) => CheckDuplicatesCount(contact));
+  if (DuplicateCount == 1)
+    console.log(
+      "It is Not a Duplicate Entry"
+    );
   else
-    console.log("duplicate entry");
+    console.log(
+      "It is Duplicate Entry"
+    );
 
-  //uc8 search person using city or state & uc10 for counting
-  
-  var numberOfCity = 0;//by city
-  var numberOfState = 0;
-  console.log("");
-  console.log("Contact by City Landan")
-  function ContactByCity(contactDetails) {
-    if (contactDetails.city == "Landan") {
-      console.log(contactDetails.toString());
-      numberOfCity++;
-    }
+  //Ability to search person in particular City or State
+
+  //Search By City
+  console.log(
+    "\nSearch To get Contact by City Raichur"
+  );
+  function ContactByCity(contact) {
+    if (contact.city == "Vizag") console.log(contact.toString());
   }
-  contactDetailsArray.filter(ContactByCity);
-  console.log("contacts by city " + numberOfCity);
+  addressBookContactsArray.filter(ContactByCity);
 
-  //by state
+  //Search By State
+  console.log(
+    "Search Contact By State AndhraPradesh"
+  );
+  let statecontact = addressBookContactsArray.filter((contact) =>
+    contact.state.includes("AndhraPradesh")
+  );
+  console.log(statecontact.toString());
 
-  console.log("Contact By State Karnataka")
-  let citycontact = contactDetailsArray.filter((contact) => contact.state.includes("Karnataka"));
-  console.log(citycontact.toString());
 
-  function ContactByState(contact) {
-    if (contact.state == "Karnataka") {
-      console.log(contact.toString());
-      numberOfState++;
-    }
+  // UC8 - Ability to View Person by City or State
+  function StateMap(Details) {
+    return Details.state + " " + Details.firstName + " " + Details.lastName;
   }
-  console.log("Contact By State ")
-  contactDetailsArray.filter(ContactByState);
-  console.log("contacts by state " + numberOfState);
-
-  //uc9 Contacts by city or State using map  
-  //by state
-  console.log("contact details by city or state using map");
-  function CityMap(contact) {
-    return contact.city + " -> " + contact.firstName + " " + contact.lastName;
-  }
-  let addressCityMap = contactDetailsArray.map(CityMap);
-  console.log(addressCityMap);
-
-  //by city
-  function StateMap(contactDetails) {
-    return contactDetails.state + " -> " + contactDetails.firstName + " " + contactDetails.lastName;
-  }
-  let addressStateMap = contactDetailsArray.map(StateMap);
+  let addressStateMap = addressBookContactsArray.map(StateMap);
   console.log(addressStateMap);
-
-  //uc11 sorting by name and printing the array
-  function SortByName() {
-    for (let contactDetails in contactDetailsArray) {
-      contactDetailsArray.sort(contactDetails.firstName);
-    }
-    contactDetailsArray.forEach((contact) => console.log(contact.toString()));
-  }
-  function SortByCity() {
-    for (let contactDetails in contactDetailsArray) {
-      contactDetailsArray.sort(contactDetails.city);
-    }
-    contactDetailsArray.forEach((contact) => console.log(contact.toString()));
-  }
-  function SortByState() {
-    for (let contactDetails in contactDetailsArray) {
-      contactDetailsArray.sort(contactDetails.state);
-    }
-    contactDetailsArray.forEach((contact) => console.log(contact.toString()));
-  }
-  function SortByZip() {
-    for (let contactDetails in contactDetailsArray) {
-      contactDetailsArray.sort(contactDetails.zip);
-    }
-    contactDetailsArray.forEach((contact) => console.log(contact.toString()));
-  }
-  console.log("Sorting by firstName");
-  SortByName();
-  console.log("Sort By City")
-  SortByCity();
-  console.log("Sort By State")
-  SortByState();
-  console.log("Sort By Zip")
-  SortByZip();
-
 }
-catch (e) {
+catch(e) {
   console.log(e);
 }
