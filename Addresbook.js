@@ -169,7 +169,7 @@ try {
 
   //finding index using name
   let check = addressBookContactsArray.findIndex(
-    (contact) => contact.firstName == "Ajay"
+    (contact) => contact.firstName == "Vijay"
   );
   //updating the contact detail
   addressBookContactsArray[check].zip = "121 003";
@@ -206,7 +206,7 @@ try {
   // check for duplicate Person details
   let DuplicateCount = 0;
   function CheckDuplicatesCount(contact) {
-    if (contact.firstName == "Nandha") DuplicateCount++;
+    if (contact.firstName == "Halesh") DuplicateCount++;
     return DuplicateCount;
   }
   //using foreach checking the count for each contact
@@ -227,7 +227,7 @@ try {
     "\nSearch To get Contact by City Raichur"
   );
   function ContactByCity(contact) {
-    if (contact.city == "Vizag") console.log(contact.toString());
+    if (contact.city == "Raichur") console.log(contact.toString());
   }
   addressBookContactsArray.filter(ContactByCity);
 
@@ -236,7 +236,7 @@ try {
     "Search Contact By State AndhraPradesh"
   );
   let statecontact = addressBookContactsArray.filter((contact) =>
-    contact.state.includes("AndhraPradesh")
+    contact.state.includes("Karnataka")
   );
   console.log(statecontact.toString());
 
